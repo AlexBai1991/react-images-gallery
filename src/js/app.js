@@ -48,8 +48,6 @@ class App extends Component {
   inverse(index) {
     return () => {
       const { inverseImage } = this.props.actions;
-      // dispatch(Actions.inverse(index));
-      // this.reArrange()
       inverseImage(index);
     };
   }
@@ -106,10 +104,6 @@ class App extends Component {
     imgPosArr.splice(centerIndex, 0, centerImagePosArr[0]);
     const { rearrangeImages } = actions;
     rearrangeImages(imgPosArr);    
-    // 设置state状态，触发重新渲染
-    /*this.setState({
-      imgPosArr
-    });*/
   } 
   componentWillMount() {
   }
@@ -141,7 +135,6 @@ class App extends Component {
   }
   render() {
     const { imageInfo, actions } = this.props;
-    console.log('render', this.props);
     return (
       <section className="images-figures" ref="stage">
         <ImageFigures 

@@ -16,7 +16,7 @@ const { dispatch, subscribe } = store;
 dispatch(initImages(IMAGES));
 
 subscribe(() => {
-  // console.log(store.getState());
+  console.log(store.getState());
 });
 
 render(

@@ -1,7 +1,3 @@
-export function init() {
-
-}
-
 export function initImages(images) {
   return {
     type: 'INIT_IMAGES',
