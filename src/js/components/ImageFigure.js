@@ -8,7 +8,7 @@ export default class ImageFigure extends Component {
   handleClick(e) {
     const target = e.currentTarget;
     console.log(target);
-    if (this.props.arrange.isCenter) {
+    if (this.props.image.isCenter) {
       this.props.inverse();
     } else {
       this.props.center();
@@ -18,17 +18,19 @@ export default class ImageFigure extends Component {
   }
   render() {
     let styleObj = {};
-    if (this.props.arrange.pos) {
-      styleObj = this.props.arrange.pos;
+    if (this.props.image.pos) {
+      styleObj.left = this.props.image.pos.left;
+      styleObj.top = this.props.image.pos.top;
     }
-    if (this.props.arrange.rotate) {
-      styleObj['transform'] = `rotate(${this.props.arrange.rotate}deg)`;
+    if (this.props.image.rotate) {
+      styleObj['transform'] = `rotate(${this.props.image.rotate}deg)`;
     }
-    if (this.props.arrange.isCenter) {
+    if (this.props.image.isCenter) {
       styleObj['zIndex'] = 11;
     }
+    console.log(styleObj);
     let imageFigureclassName = 'image-figure';
-    imageFigureclassName += this.props.arrange.isInverse ? ' is-inverse' : '';
+    imageFigureclassName += this.props.image.isInverse ? ' is-inverse' : '';
     return (
       <figure className={imageFigureclassName} style={styleObj} onClick={this.handleClick} >
         <img src={this.props.image.imageUrl} alt={this.props.image.desc} />
