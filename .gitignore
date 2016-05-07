@@ -14,5 +14,5 @@ bin-release/
 node_modules
 
 # dist
-dist/
+# dist/
 .sass-cache
