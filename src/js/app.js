@@ -150,7 +150,7 @@ class App extends Component {
   }
 
   render() {
-    const { imageInfo, actions } = this.props;
+    const { imageInfo, navs, actions } = this.props;
 
     return (
       <section className="images-figures" ref="stage">
@@ -161,15 +161,22 @@ class App extends Component {
           onCenter={this.center} 
           onInverse={this.inverse}
           />
-        <ControllerNavs />
+        <ControllerNavs 
+          navs={navs} 
+          center={this.center}
+          />
       </section> 
     );
   }
 }
 
 function mapStateToProps(state) {
+  let navs = state.imageInfo.map((image) => {
+    return { isCenter: image.isCenter };
+  });
   return {
-    imageInfo: state.imageInfo
+    imageInfo: state.imageInfo,
+    navs
   };
 }
 

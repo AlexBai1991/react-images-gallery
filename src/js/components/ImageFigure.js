@@ -27,7 +27,7 @@ export default class ImageFigure extends Component {
     }
     if (this.props.image.rotate) {
       styleObj.transform = `rotate(${this.props.image.rotate}deg)`;
-      styleObj.webkitTransform = `rotate(${this.props.image.rotate}deg)`;
+      styleObj.WebkitTransform = `rotate(${this.props.image.rotate}deg)`;
     }
     if (this.props.image.isCenter) {
       styleObj.zIndex = 11;
@@ -35,6 +35,7 @@ export default class ImageFigure extends Component {
 
     let imageFigureclassName = 'image-figure';
     imageFigureclassName += this.props.image.isInverse ? ' is-inverse' : '';
+    imageFigureclassName += this.props.image.isCenter ? ' is-center' : '';
     
     return (
       <figure className={imageFigureclassName} style={styleObj} onClick={this.handleClick} >
