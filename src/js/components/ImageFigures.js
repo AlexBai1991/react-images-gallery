@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import ImageFigure from './ImageFigure';
 
@@ -31,5 +31,8 @@ class ImageFigures extends Component {
     );
   }
 }
+ImageFigures.propTypes = {
+  images: PropTypes.array.isRequired
+};
 
 export default ImageFigures;
