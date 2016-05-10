@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7c63de6af641485ea0af"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "691978df9eb73d0d3be2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -23036,7 +23036,9 @@
 	}(_react.Component);
 	
 	ImageFigures.propTypes = {
-	  images: _react.PropTypes.array.isRequired
+	  images: _react.PropTypes.array.isRequired,
+	  onCenter: _react.PropTypes.func.isRequired,
+	  onInverse: PorpTypes.func.isRequired
 	};
 	
 	exports.default = ImageFigures;
@@ -23216,7 +23218,8 @@
 	
 	
 	ControllerNavs.propTypes = {
-	  navs: _react.PropTypes.array.isRequired
+	  navs: _react.PropTypes.array.isRequired,
+	  center: Props.func.isRequired
 	};
 
 /***/ },
