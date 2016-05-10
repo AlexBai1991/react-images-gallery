@@ -27,7 +27,7 @@ export default class ImageFigure extends Component {
     }
     if (this.props.image.rotate) {
       styleObj.transform = `rotate(${this.props.image.rotate}deg)`;
-      styleObj.webkitTransform = `rotate(${this.props.image.rotate}deg)`;
+      styleObj.WebkitTransform = `rotate(${this.props.image.rotate}deg)`;
     }
     if (this.props.image.isCenter) {
       styleObj.zIndex = 11;
