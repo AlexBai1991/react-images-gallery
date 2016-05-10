@@ -161,7 +161,10 @@ class App extends Component {
           onCenter={this.center} 
           onInverse={this.inverse}
           />
-        <ControllerNavs navs={navs} />
+        <ControllerNavs 
+          navs={navs} 
+          center={this.center}
+          />
       </section> 
     );
   }

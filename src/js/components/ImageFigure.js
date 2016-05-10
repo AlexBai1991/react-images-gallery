@@ -35,6 +35,7 @@ export default class ImageFigure extends Component {
 
     let imageFigureclassName = 'image-figure';
     imageFigureclassName += this.props.image.isInverse ? ' is-inverse' : '';
+    imageFigureclassName += this.props.image.isCenter ? ' is-center' : '';
     
     return (
       <figure className={imageFigureclassName} style={styleObj} onClick={this.handleClick} >

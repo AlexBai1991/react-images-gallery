@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ee9446a00e19da15d4ab"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7c63de6af641485ea0af"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22938,7 +22938,10 @@
 	          onCenter: this.center,
 	          onInverse: this.inverse
 	        }),
-	        _react2.default.createElement(_ControllerNavs2.default, { navs: navs })
+	        _react2.default.createElement(_ControllerNavs2.default, {
+	          navs: navs,
+	          center: this.center
+	        })
 	      );
 	    }
 	  }]);
@@ -23106,6 +23109,7 @@
 	
 	      var imageFigureclassName = 'image-figure';
 	      imageFigureclassName += this.props.image.isInverse ? ' is-inverse' : '';
+	      imageFigureclassName += this.props.image.isCenter ? ' is-center' : '';
 	
 	      return _react2.default.createElement(
 	        'figure',
@@ -23165,21 +23169,38 @@
 	var ControllerNavs = function (_Component) {
 	  _inherits(ControllerNavs, _Component);
 	
-	  function ControllerNavs() {
+	  function ControllerNavs(props, context) {
 	    _classCallCheck(this, ControllerNavs);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ControllerNavs).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ControllerNavs).call(this, props, context));
+	
+	    _this.centerImage = _this.centerImage.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(ControllerNavs, [{
+	    key: 'centerImage',
+	    value: function centerImage(index) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        e.preventDefault();
+	        _this2.props.center(index)();
+	      };
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
 	      var navs = this.props.navs.map(function (nav, index) {
 	        var isCenter = nav.isCenter;
 	        var spanClass = 'nav-item';
 	        isCenter && (spanClass += ' active');
-	        return _react2.default.createElement('span', { key: index, className: spanClass });
+	
+	        return _react2.default.createElement('a', { href: '', key: index, className: spanClass, onClick: _this3.centerImage(index) });
 	      });
+	
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'controller-sec' },
