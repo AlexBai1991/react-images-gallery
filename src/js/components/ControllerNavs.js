@@ -33,5 +33,6 @@ export default class ControllerNavs extends Component {
 }
 
 ControllerNavs.propTypes = {
-    navs: PropTypes.array.isRequired
+    navs: PropTypes.array.isRequired,
+    center: Props.func.isRequired
 };
