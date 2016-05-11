@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fbd03c16ee8fbe135790"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8126c13cd53bba8e2c7a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22917,7 +22917,10 @@
 	        topY: [0 - halfImageFigureH, halfStageH - halfImageFigureH * 3]
 	      };
 	
-	      this.reArrange(1);
+	      // 初始随机定位居中图片
+	      var images = this.props.imageInfo;
+	      var randomCenterImageIndex = Math.floor(Math.random() * images.length);
+	      this.reArrange(randomCenterImageIndex);
 	    }
 	  }, {
 	    key: 'render',

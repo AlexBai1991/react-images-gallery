@@ -31,6 +31,7 @@ class ImageFigures extends Component {
     );
   }
 }
+
 ImageFigures.propTypes = {
   images: PropTypes.array.isRequired,
   onCenter: PropTypes.func.isRequired,

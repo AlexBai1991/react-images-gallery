@@ -146,7 +146,10 @@ class App extends Component {
       topY: [0 - halfImageFigureH, halfStageH - halfImageFigureH * 3]
     };
 
-    this.reArrange(1);
+    // 初始随机定位居中图片
+    const images = this.props.imageInfo;
+    let randomCenterImageIndex = Math.floor(Math.random() * images.length);
+    this.reArrange(randomCenterImageIndex);
   }
 
   render() {
