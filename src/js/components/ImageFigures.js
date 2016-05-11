@@ -34,7 +34,7 @@ class ImageFigures extends Component {
 ImageFigures.propTypes = {
   images: PropTypes.array.isRequired,
   onCenter: PropTypes.func.isRequired,
-  onInverse: PorpTypes.func.isRequired
+  onInverse: PropTypes.func.isRequired
 };
 
 export default ImageFigures;

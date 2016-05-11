@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "691978df9eb73d0d3be2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fbd03c16ee8fbe135790"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -23038,7 +23038,7 @@
 	ImageFigures.propTypes = {
 	  images: _react.PropTypes.array.isRequired,
 	  onCenter: _react.PropTypes.func.isRequired,
-	  onInverse: PorpTypes.func.isRequired
+	  onInverse: _react.PropTypes.func.isRequired
 	};
 	
 	exports.default = ImageFigures;
@@ -23219,7 +23219,7 @@
 	
 	ControllerNavs.propTypes = {
 	  navs: _react.PropTypes.array.isRequired,
-	  center: Props.func.isRequired
+	  center: _react.PropTypes.func.isRequired
 	};
 
 /***/ },
