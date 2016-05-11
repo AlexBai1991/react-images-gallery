@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 
 export default class ImageFigure extends Component {
