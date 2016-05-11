@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4fc2e2d7e454a95e16f7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "691978df9eb73d0d3be2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22924,6 +22924,7 @@
 	    value: function render() {
 	      var _props2 = this.props;
 	      var imageInfo = _props2.imageInfo;
+	      var navs = _props2.navs;
 	      var actions = _props2.actions;
 	
 	
@@ -22937,7 +22938,10 @@
 	          onCenter: this.center,
 	          onInverse: this.inverse
 	        }),
-	        _react2.default.createElement(_ControllerNavs2.default, null)
+	        _react2.default.createElement(_ControllerNavs2.default, {
+	          navs: navs,
+	          center: this.center
+	        })
 	      );
 	    }
 	  }]);
@@ -22946,8 +22950,12 @@
 	}(_react.Component);
 	
 	function mapStateToProps(state) {
+	  var navs = state.imageInfo.map(function (image) {
+	    return { isCenter: image.isCenter };
+	  });
 	  return {
-	    imageInfo: state.imageInfo
+	    imageInfo: state.imageInfo,
+	    navs: navs
 	  };
 	}
 	
@@ -23028,7 +23036,9 @@
 	}(_react.Component);
 	
 	ImageFigures.propTypes = {
-	  images: _react.PropTypes.array.isRequired
+	  images: _react.PropTypes.array.isRequired,
+	  onCenter: _react.PropTypes.func.isRequired,
+	  onInverse: PorpTypes.func.isRequired
 	};
 	
 	exports.default = ImageFigures;
@@ -23093,7 +23103,7 @@
 	      }
 	      if (this.props.image.rotate) {
 	        styleObj.transform = 'rotate(' + this.props.image.rotate + 'deg)';
-	        styleObj.webkitTransform = 'rotate(' + this.props.image.rotate + 'deg)';
+	        styleObj.WebkitTransform = 'rotate(' + this.props.image.rotate + 'deg)';
 	      }
 	      if (this.props.image.isCenter) {
 	        styleObj.zIndex = 11;
@@ -23101,6 +23111,10 @@
 	
 	      var imageFigureclassName = 'image-figure';
 	      imageFigureclassName += this.props.image.isInverse ? ' is-inverse' : '';
+<<<<<<< HEAD
+=======
+	      imageFigureclassName += this.props.image.isCenter ? ' is-center' : '';
+>>>>>>> a098154bb51f7832fd36ca529e1950fdaf334d20
 	
 	      return _react2.default.createElement(
 	        'figure',
@@ -23137,7 +23151,11 @@
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 	"use strict";
+=======
+	'use strict';
+>>>>>>> a098154bb51f7832fd36ca529e1950fdaf334d20
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -23160,19 +23178,49 @@
 	var ControllerNavs = function (_Component) {
 	  _inherits(ControllerNavs, _Component);
 	
+<<<<<<< HEAD
 	  function ControllerNavs() {
 	    _classCallCheck(this, ControllerNavs);
 	
 	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ControllerNavs).apply(this, arguments));
+=======
+	  function ControllerNavs(props, context) {
+	    _classCallCheck(this, ControllerNavs);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ControllerNavs).call(this, props, context));
+	
+	    _this.centerImage = _this.centerImage.bind(_this);
+	    return _this;
+>>>>>>> a098154bb51f7832fd36ca529e1950fdaf334d20
 	  }
 	
 	  _createClass(ControllerNavs, [{
-	    key: "render",
+	    key: 'centerImage',
+	    value: function centerImage(index) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        e.preventDefault();
+	        _this2.props.center(index)();
+	      };
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
+	      var _this3 = this;
+	
+	      var navs = this.props.navs.map(function (nav, index) {
+	        var isCenter = nav.isCenter;
+	        var spanClass = 'nav-item';
+	        isCenter && (spanClass += ' active');
+	
+	        return _react2.default.createElement('a', { href: '', key: index, className: spanClass, onClick: _this3.centerImage(index) });
+	      });
+	
 	      return _react2.default.createElement(
-	        "section",
-	        { className: "controller-sec" },
-	        "控制器区域"
+	        'section',
+	        { className: 'controller-sec' },
+	        navs
 	      );
 	    }
 	  }]);
@@ -23181,6 +23229,12 @@
 	}(_react.Component);
 	
 	exports.default = ControllerNavs;
+	
+	
+	ControllerNavs.propTypes = {
+	  navs: _react.PropTypes.array.isRequired,
+	  center: Props.func.isRequired
+	};
 
 /***/ },
 /* 204 */
