@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 'use strict';
 
 import React, { Component } from 'react';
-=======
 import React, { Component, PropTypes } from 'react';
->>>>>>> a098154bb51f7832fd36ca529e1950fdaf334d20
 
 export default class ControllerNavs extends Component {
   constructor(props, context) {
